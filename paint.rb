@@ -1,4 +1,8 @@
 require 'green_shoes'
+#create yaml functionality for the hash values
+#store another brush
+#classes 
+
 
 class Paint
   #void setup
