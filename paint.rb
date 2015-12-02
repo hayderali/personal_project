@@ -1,12 +1,12 @@
 require 'green_shoes'
 
 class Paint
-  #setting the window size 
   #void setup
+  #setting the window size 
   Shoes.app title: "Paint Project",:width => 320, :height => 400 do
     
-    box = 
-    background "#B7C5C9"
+    background "#FFFFFF"
+    #gui colours
     red = rect 0, 360, 40, 40, :fill => "#E30B0B"
     orange = rect 40, 360, 40, 40, :fill => "#E36C0B"
     yellow = rect 80, 360, 40,40, :fill => "#DEF200"
@@ -15,29 +15,33 @@ class Paint
     navy_blue = rect 200, 360, 40, 40, :fill => "#2400F2"
     purple = rect 240, 360, 40, 40, :fill => "#8500F2"
     rubber = rect 280, 360, 40, 40, :fill => "#B7C5C9"
- 
+    #brush variables
     previous_pos_x = nil
     previous_pos_y = nil
-    
     stroke "#E30B0B"
-    brush_size = 5
-    
+    brush_size = 16
+   
+    #buttons
     increase_size = button "Brush Size +"
     decrease_size = button "Brush Size -"
     clean_slate = button "Wipe Page"
-    message = para "Brush size is:" + brush_size.to_s
+    
+    message = para "Brush size is: " + brush_size.to_s
     
     increase_size.click do
-      brush_size = brush_size + 5
-      message.replace "Brush size is:" + brush_size.to_s
+      brush_size = brush_size + 4
+      message.replace "Brush size is: " + brush_size.to_s
     end
     
     decrease_size.click do
-      brush_size = brush_size - 5
-      message.replace "Brush size is:" + brush_size.to_s
+      brush_size = brush_size - 4
+      message.replace "Brush size is: " + brush_size.to_s
     end
     
-    
+    clean_slate.click do
+      nostroke
+      rubber = rect 0, 45, 320, 315, :fill => "#FFFFFF"
+    end 
    
   #end
           
@@ -45,13 +49,15 @@ class Paint
     animate do
     
       strokewidth(brush_size)
-      brush_size = 10 if brush_size <= 0
+      brush_size = 16 if brush_size <= 0
  
       button, x,y = self.mouse
           
-      #if button is pressed draw line
+      #if button is pressed and all 4 line positions are within the frame, draw the line 
       if button == 1
-        line(previous_pos_x, previous_pos_y, x,y)
+        if (previous_pos_x > 0 && previous_pos_x < 400) && (previous_pos_y > 60 && previous_pos_y < 360) && (x > 0 && x < 400) && (y > 60 && y < 360)
+          line(previous_pos_x, previous_pos_y, x,y)
+        end
       end
           
       previous_pos_x = x
