@@ -1,29 +1,20 @@
 require 'green_shoes'
-require './protanopia'
+require './paint'
 #store another brush
  
-class Paint
+
+class Protanopia < Paint
   attr_accessor :previous_pos_x,:previous_pos_y,:brush_size,:decrease_size,:increase_size,:clean_slate
   #setting the window size   
   
   #normal paint
-  Shoes.app title: "Paint Project",:width => 640, :height => 400 do
-		def initialize(x,y,b_size,increase_brush,decrease_brush,clean)
+  #Shoes.app title: "Paint Project",:width => 640, :height => 400 do
+		def initialize(x,y,b_size,big,small,clean)
 			
-			previous_pos_x = x
-			previous_pos_y = y
-			brush_size = b_size
-			increase_size = increase_brush
-			decrease_size = decrease_brush
-			clean_slate = clean
-			
-			@@a = Protanopia.new
-			@@a.draw_screen
-			
-			
+			super(x,y,b_size,big,small,clean)
+
 		end
-		
-			#brush variables
+
 			@previous_pos_x 
 			@previous_pos_y
 			@brush_size = 8
@@ -32,30 +23,26 @@ class Paint
 			@increase_size = button "Brush Size +"
 			@decrease_size = button "Brush Size -"
 			@clean_slate = button "Wipe Page"
-			
-			
 		
 		#gui colours
 		def draw_screen
+			stroke "#E30B0B"
 			background "#FFFFFF"
 			strokewidth(1)
-			
-			
-
-			stroke("#000000")
-			#border
 			line(322,0,322,400)
-			#squares 
-			red = rect 0, 360, 40, 40, :fill => "#E30B0B"
-			orange = rect 40, 360, 40, 40, :fill => "#E36C0B"
-			yellow = rect 80, 360, 40,40, :fill => "#DEF200"
-			green = rect  120, 360, 40, 40, :fill => "#1CF200"
-			blue = rect  160, 360, 40, 40, :fill => "#00F2E6"			
-			navy_blue = rect 200, 360, 40, 40, :fill => "#2400F2"
-			purple = rect 240, 360, 40, 40, :fill => "#8500F2"
-			rubber = rect 280, 360, 40, 40, :fill => "#B7C5C9"
+			#brush variables
+		
+			stroke("#000000")
 			
-			
+			#protanopia
+			red = rect 320, 360, 40, 40, :fill => "#8C5001"
+			orange = rect 360, 360, 40, 40, :fill => "#DBAD16"
+			yellow = rect 400, 360, 40,40, :fill => "#FAF9F7"
+			green = rect  440, 360, 40, 40, :fill => "#DFE62E"
+			blue = rect  480, 360, 40, 40, :fill => "#CCD1F0"			
+			navy_blue = rect 520, 360, 40, 40, :fill => "#2400F2"
+			purple = rect 560, 360, 40, 40, :fill => "#024694"
+			grey = rect 600, 360, 40, 40, :fill => "#B7C5C9"
 		end
 			
 		def button 
@@ -89,7 +76,7 @@ class Paint
 					if (@previous_pos_x > 2 && @previous_pos_x < 316) && (@previous_pos_y > 60 && @previous_pos_y < 360) && (x > 0 && x < 320) && (y > 60 && y < 360)
 
 						colour1 = line(@previous_pos_x, @previous_pos_y, x,y)
-						#colour2 = line(@previous_pos_x+320, @previous_pos_y, x+320,y)  
+						colour2 = line(@previous_pos_x+320, @previous_pos_y, x+320,y)  
 						#c 
 					end
 				end
@@ -152,16 +139,7 @@ class Paint
     choose_colours
     button
     paint_normal
-		
-
-		#@proto.draw_screen
-    #@proto.choose_colours
-    #@proto.button
-    #@proto.paint_normal
-		
     
     
-  end    
+  #end    
 end
-
-
