@@ -148,16 +148,16 @@ class Paint
 		end  
 	end 
     
-    draw_screen
-    choose_colours
-    button
-    paint_normal
-		
-
-    #@proto.draw_screen
-    #@proto.choose_colours
-    #@proto.button
-    #@proto.paint_normal
+  draw_screen
+  choose_colours
+  button
+  paint_normal
+  
+  @proto = Protanopia.new
+	@proto.draw_screen
+  #@proto.choose_colours
+  #@proto.button
+  #@proto.paint_normal
 		
   end    
 end
