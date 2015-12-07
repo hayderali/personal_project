@@ -1,5 +1,5 @@
 require 'green_shoes'
-#require './protanopia.rb'
+require './protanopia'
 #main class 
  
 class Paint 
@@ -73,11 +73,15 @@ class Paint
 			clear_left = rect 0, 45, 321, 315, :fill => "#FFFFFF" 
 			clear_right = rect 322, 45, 640, 315, :fill => "#FFFFFF" 
 		end
+
 	end
 	
 	def choose_colours
 		click do |button, x, y|
 			if button == 1
+        #if colorblindness == true
+        #do something
+        #else
 				#colour
 				if (y > 360 && y < 400) && (x > 0 && x < 40)			
 					stroke "#E30B0B"
@@ -150,3 +154,6 @@ class Paint
 	
   end 
 end
+
+Paint.new
+Protanopia.new

@@ -2,7 +2,10 @@ require 'green_shoes'
 require 'spec_helper'
 
   before :all do 
-
+      
+      
+      
+      a = Paint.new
       #load these variables into the program
       
       #brush variables
@@ -29,8 +32,6 @@ require 'spec_helper'
   
 	describe "Paint Functionality" do
 
-    
-      
     it "brush size is default 8" do
       expect(brush_size).to eq(8)
     end
@@ -40,7 +41,7 @@ require 'spec_helper'
     end
     
     it "rectangle should be at the bottom of the screen by 40x40"
-      expect(red).contains ("0,360,40,40")
+      expect(a,@red).contains ("0,360,40,40")
       expect(red.fill).to eq("#E30BOB")
     end
       
