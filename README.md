@@ -1,6 +1,6 @@
 #Paint Project
 
-## This program has been written with the ruby gem known as green_shoes that allows you to create GUI. With the usage of a GUI I have created an interactive paint programme.
+## This program has been written with the ruby gem green_shoes that allows you to create a GUI. With the usage of a GUI I have created an interactive paint programme.
 
 ### How to run:
 - Navigate to the directory via a terminal
