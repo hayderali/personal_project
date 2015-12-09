@@ -8,15 +8,6 @@ class Paint
   #setting the window size   
   Shoes.app title: "Paint Project",:width => 640, :height => 400 do
   	
-		def initialize(x,y,b_size,increase_brush,decrease_brush,clean)	
-			@previous_pos_x = x
-			@previous_pos_y = y
-			@brush_size = b_size
-			@increase_size = increase_brush
-			@decrease_size = decrease_brush
-			@clean_slate = clean
-		end 
-	
 		#brush variables
 		@previous_pos_x 
 		@previous_pos_y
@@ -26,7 +17,7 @@ class Paint
 		@increase_size = button "Brush Size +"
 		@decrease_size = button "Brush Size -"
 		@clean_slate = button "Wipe Page"
-		@paint_change = button "Prota Me"
+		@paint_change = button "Protanopia"
 				
 		@brush_prota = false
 		@brush = true 
@@ -183,19 +174,17 @@ class Paint
 				if button == 1 
 				
 					if (@previous_pos_x > 2 && @previous_pos_x < 316) && (@previous_pos_y > 60 && @previous_pos_y < 360) && (x > 0 && x < 320) && (y > 60 && y < 360) 
-					
-					
 							l1 =	line(@previous_pos_x, @previous_pos_y, x,y)		
 					end
 				end
 				
-				if button == 1 
-	
+				if button == 1
 					if (@previous_pos_x > 2 && @previous_pos_x < 316) && (@previous_pos_y > 60 && @previous_pos_y < 360) && (x > 0 && x < 320) && (y > 60 && y < 360) 
+					
 						l2	= line(@previous_pos_x +320, @previous_pos_y, x+320,y)
 					end
 				end
-				
+	
 				@previous_pos_x = x
 				@previous_pos_y = y
 			end  
@@ -206,5 +195,6 @@ class Paint
 		choose_colours
 		paint_normal
 		
-	  end 
-	end
+	end 
+end
+	
