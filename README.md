@@ -11,6 +11,7 @@
 - If you click and drag the mouse around on the left screen it will paint.
 - You can increase and decrease the brush size but clicking the buttons. You can also clean the page.
 - If you click on any of the rectangles on the left you can change the colour of the paint brush.
+- If you click on Protanobia and then choose a colour, a different colour will load.
 
 ### The right screen is a duplicate screen that mimics the left to see if you have a particular type of colour blindness.
 - However that functionality is not fully implemented due to technical issues with green_shoes.
